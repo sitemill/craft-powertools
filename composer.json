@@ -1,5 +1,5 @@
 {
-  "name": "sitemill/powertools",
+  "name": "sitemill/craft-powertools",
   "description": "A set of tools used internally by Sitemill",
   "type": "craft-plugin",
   "version": "1.0.0",
