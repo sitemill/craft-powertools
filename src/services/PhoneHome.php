@@ -5,10 +5,11 @@ namespace sitemill\powertools\services;
 use Craft;
 use craft\base\PluginInterface;
 use craft\helpers\App;
+use craft\web\twig\variables\Rebrand;
 use craft\helpers\UrlHelper;
-use GuzzleHttp\Client;
 use sitemill\powertools\jobs\PhoneHomeJob;
 use yii\base\Module;
+use GuzzleHttp\Client;
 
 class PhoneHome
 {
@@ -59,13 +60,25 @@ class PhoneHome
                         'parent' => [
                             'database_id' => self::$_database,
                         ],
-                        'properties' => self::_appInfo()
+                        'properties' => self::_appInfo(),
+                        'icon' => [
+                            'type' => 'external',
+                            'external' => [
+                                'url' => self::_getIcon()
+                            ]
+                        ]
                     ]
                 ]);
             } else {
               $request = self::$_notion->request('PATCH', 'pages/' . $existingRecord, [
                     'json' => [
-                        'properties' => self::_appInfo()
+                        'properties' => self::_appInfo(),
+                        'icon' => [
+                            'type' => 'external',
+                            'external' => [
+                                'url' => self::_getIcon()
+                            ]
+                        ]
                     ]
                 ]);
             }
@@ -228,5 +241,16 @@ class PhoneHome
         return implode(PHP_EOL, $modules);
     }
 
+    private static function _getIcon(): ?string {
+        $iconUrl = null;
+        $rebrand = new Rebrand();
+        if (Craft::$app->getEditionName() == 'Pro' && $rebrand->isIconUploaded()) {
+            $iconUrl = $rebrand->getIcon()->getUrl();
+        } else {
+            return null;
+        }
+        return $iconUrl;
+    }
 
 }
+

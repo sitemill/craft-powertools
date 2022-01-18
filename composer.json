@@ -2,7 +2,7 @@
   "name": "sitemill/craft-powertools",
   "description": "A set of tools used internally by Sitemill",
   "type": "craft-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "craft",
     "cms",
