@@ -1,0 +1,56 @@
+{
+  "name": "sitemill/powertools",
+  "description": "A set of tools used internally by Sitemill",
+  "type": "craft-plugin",
+  "version": "1.0.0",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "powertools"
+  ],
+  "support": {
+    "docs": "https://github.com/sitemill/powertools/blob/master/README.md",
+    "issues": "https://github.com/sitemill/powertools/issues"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "sitemill",
+      "homepage": "https://sitemill.co"
+    }
+  ],
+  "require": {
+    "codecycler/notion": "*",
+    "guzzlehttp/guzzle": "^7.0.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "craftcms/cms": "^3.2.0",
+    "vlucas/phpdotenv": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "sitemill\\powertools\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "powertools",
+    "handle": "powertools",
+    "developer": "sitemill",
+    "developerUrl": "https://sitemill.co",
+    "documentationUrl": "https://github.com/sitemill/powertools/blob/master/README.md",
+    "changelogUrl": "https://raw.githubusercontent.com/sitemill/powertools/master/CHANGELOG.md",
+    "components": {
+      "powertoolsService": "PhoneHomeService"
+    },
+    "class": "sitemill\\powertools\\Powertools"
+  },
+  "config": {
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  }
+}
