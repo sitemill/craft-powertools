@@ -1,43 +1,7 @@
-# powertools plugin for Craft CMS 3.x
+# Craft Power⚡️tools
 
-A set of tools used internally by Sitemill
+* Phone home - Compiles details about the Craft installation in a notion database (Inspired by https://github.com/vigetlabs/craft-viget-base)
 
-![Screenshot](resources/img/plugin-logo.png)
-
-## Requirements
-
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
-
-## Installation
-
-To install the plugin, follow these instructions.
-
-1. Open your terminal and go to your Craft project:
-
-        cd /path/to/project
-
-2. Then tell Composer to load the plugin:
-
-        composer require sitemill/powertools
-
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for powertools.
-
-## powertools Overview
-
--Insert text here-
-
-## Configuring powertools
-
--Insert text here-
-
-## Using powertools
-
--Insert text here-
-
-## powertools Roadmap
-
-Some things to do, and ideas for potential features:
-
-* Release it
-
-Brought to you by [sitemill](sitemill.co)
+**Coming soon**
+* Simple database syncing
+* Dashboard hiding

@@ -1,4 +1,4 @@
-# powertools Changelog
+# Powertools Changelog
 
 All notable changes to this project will be documented in this file.
 

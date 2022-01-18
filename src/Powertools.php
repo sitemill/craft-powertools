@@ -33,6 +33,4 @@ class Powertools extends \craft\base\Plugin
             }
         }
     }
-
-
 }

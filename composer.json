@@ -11,8 +11,8 @@
     "powertools"
   ],
   "support": {
-    "docs": "https://github.com/sitemill/powertools/blob/master/README.md",
-    "issues": "https://github.com/sitemill/powertools/issues"
+    "docs": "https://github.com/sitemill/craft-powertools/blob/master/README.md",
+    "issues": "https://github.com/sitemill/craft-powertools/issues"
   },
   "license": "MIT",
   "authors": [
@@ -22,7 +22,6 @@
     }
   ],
   "require": {
-    "codecycler/notion": "*",
     "guzzlehttp/guzzle": "^7.0.0"
   },
   "require-dev": {
@@ -36,12 +35,12 @@
     }
   },
   "extra": {
-    "name": "powertools",
+    "name": "Powertools",
     "handle": "powertools",
     "developer": "sitemill",
     "developerUrl": "https://sitemill.co",
-    "documentationUrl": "https://github.com/sitemill/powertools/blob/master/README.md",
-    "changelogUrl": "https://raw.githubusercontent.com/sitemill/powertools/master/CHANGELOG.md",
+    "documentationUrl": "https://github.com/sitemill/craft-powertools/blob/master/README.md",
+    "changelogUrl": "https://raw.githubusercontent.com/sitemill/craft-powertools/master/CHANGELOG.md",
     "components": {
       "powertoolsService": "PhoneHomeService"
     },
