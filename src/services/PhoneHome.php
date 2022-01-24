@@ -53,33 +53,35 @@ class PhoneHome
 
         $existingRecord = self::_existingRecord();
 
+        $payload = [
+            'properties' => self::_appInfo()
+        ];
+
+        $rebrand = new Rebrand();
+        if (Craft::$app->getEditionName() == 'Pro' && $rebrand->isIconUploaded()) {
+            $payload = array_merge($payload,[
+                'icon' => [
+                    'type' => 'external',
+                    'external' => [
+                        'url' => $rebrand->getIcon()->getUrl()
+                    ]
+                ]
+            ]);
+        }
+
         try {
             if ($existingRecord === null) {
+                $payload = array_merge([
+                    'parent' => [
+                        'database_id' => self::$_database,
+                    ],
+                ],$payload);
                 $request = self::$_notion->request('POST', 'pages', [
-                    'json' => [
-                        'parent' => [
-                            'database_id' => self::$_database,
-                        ],
-                        'properties' => self::_appInfo(),
-                        'icon' => [
-                            'type' => 'external',
-                            'external' => [
-                                'url' => self::_getIcon()
-                            ]
-                        ]
-                    ]
+                    'json' => $payload
                 ]);
             } else {
-              $request = self::$_notion->request('PATCH', 'pages/' . $existingRecord, [
-                    'json' => [
-                        'properties' => self::_appInfo(),
-                        'icon' => [
-                            'type' => 'external',
-                            'external' => [
-                                'url' => self::_getIcon()
-                            ]
-                        ]
-                    ]
+                $request = self::$_notion->request('PATCH', 'pages/' . $existingRecord, [
+                    'json' => $payload
                 ]);
             }
         } catch (\Exception $e) {
@@ -241,16 +243,6 @@ class PhoneHome
         return implode(PHP_EOL, $modules);
     }
 
-    private static function _getIcon(): ?string {
-        $iconUrl = null;
-        $rebrand = new Rebrand();
-        if (Craft::$app->getEditionName() == 'Pro' && $rebrand->isIconUploaded()) {
-            $iconUrl = $rebrand->getIcon()->getUrl();
-        } else {
-            return null;
-        }
-        return $iconUrl;
-    }
 
 }
 
